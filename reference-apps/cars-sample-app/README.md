@@ -33,6 +33,21 @@ The datasouce is defined in context.xml in src/webapp/META-INF
 
 ## Building
 
+### Ravello Blueprint
+
+If you are running this lab using the provided Ravello Blueprint, the environment *should* already be configured for your use.  This includes:
+
+* Tomcat installed and configured to start as a Linux Service
+* Tomcat manager and user configuration
+* GIT, Maven already installed
+* Maven configured to communicate with and deploy the application to Tomcat
+* The application already built and deployed to ${TOMCAT_HOME}/webapps
+   * You can verify this by checking *Cars_Sample_App.war* is deployed to */opt/tomcat/apache-tomcat-8.0.30/webapps/*
+
+If you would like to understand the build / deploy process, or are running this application locally, please follow the manual build instructions.
+
+### Manually Build and Deploy the Application
+
 This app uses [Maven](https://maven.apache.org) for the build. To get a build environment working:
 
 1. Have [git](https://git-scm.com) installed and working
@@ -77,7 +92,7 @@ It is also possible to have Maven auto deploy right into Tomcat.
     1. Note that the user/pass must match what you set in the Tomcat config
 1. Now go back to the Cars_Sample_App source. Instead of "mvn install", the following will build and deploy:
 	<pre><code>
-	mvn tomcat7:install
+	mvn tomcat7:deploy
 	</code></pre>
 1. If the app is already deployed into the Tomcat the following will build and re-deploy
 	<pre><code>
